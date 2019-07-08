@@ -22,26 +22,7 @@ namespace submissionforgenesis.Controllers
 
             if (_context.Orders.Count() == 0)
             {
-                //    var product = new Product
-                //    {
-                //        Id = 1,
-                //        Name = "Product 1",
-                //        Price = 3.99M
-                //    };
-                //    var listOfProducts = new List<Product>();
-                //    listOfProducts.Add(product);
-                //    _context.Orders.Add(new Order
-                //    {
-                //        OrderId = 1,
-                //        ClientId = 123,
-                //        ProductId = 1,
-                //        Address1 = "123 Fake st",
-                //        Address2 = "Fake Town",
-                //        County = "Cork",
-                //        Country = "Ireland"
-
-                //    });
-                //    _context.SaveChanges();
+                
                 OrdersHelpers helper = new OrdersHelpers();
                 helper.SeedOrders(_context);
             }
@@ -84,7 +65,7 @@ namespace submissionforgenesis.Controllers
             var allOrdersOnClientId = _context.Orders.Where(x => x.ClientId == order.ClientId);
             
 
-            if (allOrdersOnClientId.Any(x=>x.Price > 100))
+            if (allOrdersOnClientId.Any(x=>(x.Price * x.Quantity) > 100))
             {
                 return BadRequest("The client owes over 100 euro");
             }
@@ -96,8 +77,6 @@ namespace submissionforgenesis.Controllers
 
             return CreatedAtAction(nameof(Post), new { id = order.OrderId }, order);
             
-
-
         }
 
     }

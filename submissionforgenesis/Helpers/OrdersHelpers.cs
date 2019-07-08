@@ -9,9 +9,6 @@ namespace submissionforgenesis.Helpers
 
         public void SeedOrders(OrderContext orderContext)
         {
-
-
-
             orderContext.Orders.Add(new Order
             {
                 OrderId = 1,
@@ -21,8 +18,6 @@ namespace submissionforgenesis.Helpers
                 Quantity = 3
 
             });
-
-
 
             orderContext.Orders.Add(new Order
             {
@@ -34,7 +29,6 @@ namespace submissionforgenesis.Helpers
                 Price = 50
 
             });
-
 
             orderContext.Orders.Add(new Order
             {
