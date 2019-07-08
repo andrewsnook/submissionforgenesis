@@ -6,7 +6,6 @@ This project can be tested via Postman once it's in debug mode.
 Example to use for POST:
 
 {
-	"OrderId":333,
 	"ProductId" : 4,
 	"ClientId" : 12,
 	"DeliveryAddress": "Earth",
